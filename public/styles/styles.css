@@ -12,3 +12,9 @@
   color: #535659;
   margin: 20px 10px;
 }
+
+.btn:hover {
+  background-color: #e6e8ed;
+  color: #4e8272;
+  margin: 20px 10px;
+}
