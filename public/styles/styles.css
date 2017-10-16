@@ -6,6 +6,7 @@
   color: #EAC435;
   padding: 10%;
   margin-bottom: 20px;
+  border-bottom: 1px solid black;
 }
 
 .btn {
@@ -20,14 +21,17 @@
   margin: 20px 10px;
 }
 
-h4 {
+.list {
+  outline: 1px solid black;
+}
+
+.listheader {
   text-align: center;
+  margin-bottom: 20px;
+  outline: 1px solid black;
+  padding: 5px 5px;
 }
 
-ul {
+li {
   margin-left: 20px;
-}
-
-#toDoList {
-  color: red,
 }
