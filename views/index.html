@@ -9,22 +9,18 @@
 
      <!-- STYLESHEETS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-     <link rel="stylesheet" href="../public/styles/styles.css">
+     <link rel="stylesheet" href="styles/styles.css">
 
      <!-- VENDOR SCRIPTS -->
-     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
      <!-- APPLICATION SCRIPTS -->
-     <script src="/scripts/app.js"></script>
+     <script src="scripts/app.js"></script>
 
   </head>
-<!--
-<h1>Welcome to Jibe <small class="text-muted"> <br>we are here to keep you & yours organized</small> </h1> -->
 
-
-  </form>
-</nav>
+  <body>
 
   <div class="full-width-div" id="welcome">
     <h1 class="display-3">Welcome to Jibe.</h1>
@@ -32,13 +28,40 @@
     <div class="buttons">
       <button class="btn active" type="button">Create Account</button>
       <button class="btn active" type="button">Log In</button>
-    </div>
+  </div>
   </div>
 
-
-  <body>
-
-
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-1"> </div>
+        <div class="col-md-4 list">
+          <h3 class="listheader">To Do Items</h3>
+          <ul>
+            <li>Pay the rent</li>
+            <li>Respond to emails</li>
+          </ul>
+          <div>
+            <input type="text" id="newToDo" placeholder="Create new to do">
+            <input type="submit">
+          </div>
+        </div>
+        <div class="col-md-2"> </div>
+        <div class="col-md-4 list">
+          <h3 class="listheader">Lists</h3>
+          <ul>
+            <li>Personal</li>
+            <li>Roommates</li>
+          </ul>
+          <div>
+            <input type="text" id="newList" placeholder="Create new list">
+            <input type="submit">
+          </div>
+        </div>
+        <div class="col-md-1"> </div>
+      </div>
+    </div>
+  </div>
 
   </body>
 </html>
