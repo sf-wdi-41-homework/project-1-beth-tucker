@@ -1,0 +1,13 @@
+#welcome {
+  background-color: #345995;
+  height: 600px;
+  text-align: center;
+  color: #EAC435;
+  padding-top: 15%;
+}
+
+.btn {
+  background-color: #88a2aa;
+  color: white;
+  margin: 0px 10px;
+}
