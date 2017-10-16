@@ -5,6 +5,7 @@
   text-align: center;
   color: #EAC435;
   padding: 10%;
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -17,4 +18,16 @@
   background-color: #e6e8ed;
   color: #4e8272;
   margin: 20px 10px;
+}
+
+h4 {
+  text-align: center;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+#toDoList {
+  color: red,
 }
