@@ -1,13 +1,15 @@
 #welcome {
+  font: 'Open Sans', sans-serif;
   background-color: #345995;
-  height: 600px;
+  height: 400px;
   text-align: center;
   color: #EAC435;
-  padding-top: 15%;
+  padding-top: 100px;
+  border-bottom: 1px solid black;
 }
 
 .btn {
-  background-color: #88a2aa;
-  color: white;
-  margin: 0px 10px;
+  background-color: #b0b8c4;
+  color: #535659;
+  margin: 20px 10px;
 }
