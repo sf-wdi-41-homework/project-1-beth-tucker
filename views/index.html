@@ -47,7 +47,7 @@
           <h3 class="listheader">To Do Items</h3>
             <!-- Trigger/Open The Modal -->
             <button id="toDoBtn">Create To Do</button>
-          <ul>
+          <ul id='todoList'>
             <li>Pay the rent</li>
             <li>Respond to emails</li>
           </ul>
@@ -60,7 +60,7 @@
                 <div>
                   <a> Create a New To Do </a>
                   <form id="NewToDo" method="POST" action="api/todos">
-                    <input type="text required" placeholder="Item" name="todo_name">
+                    <input type="text required" placeholder="Item" name="description">
                     <input type="submit">
                   </form>
                 </div>

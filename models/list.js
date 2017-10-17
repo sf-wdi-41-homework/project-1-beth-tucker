@@ -2,6 +2,7 @@
 // set up shorthand Schema variable to stand in for mongoose.Schema
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Todo = require('./todo');
 
 // list schema
 var ListSchema = new Schema({
@@ -10,7 +11,8 @@ var ListSchema = new Schema({
   username: String,
   email: String,
   password: String,
-  userImage: String
+  userImage: String,
+  // todos: [TodoSchema]
 });
 
 // user model

@@ -11,7 +11,15 @@
   // POST /api/todos
   function create(req, res) {
     // create an list based on request body and send it back as JSON
-    // db.Todo.create
+    var inputTodo = req.body;
+    //test input being submitted to db
+    console.log(inputTodo);
+
+    db.Todo.create(inputTodo, function(err, todo){
+      if (err) {console.log('error', err);}
+      console.log(todo);
+      res.json(todo);
+    });
   }
 
   // GET /api/todos/:todoId

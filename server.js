@@ -14,12 +14,6 @@
   //import controllers
   var controllers = require('./controllers');
 
-  //Database: hard-coded
-  var todos = [
-    { _id: 7, task: 'Laundry', description: 'Wash clothes' },
-    { _id: 27, task: 'Grocery Shopping', description: 'Buy dinner for this week' },
-    { _id: 44, task: 'Homework', description: 'Make this app super awesome!' }
-  ];
 
 
   // add a route so your server will respond to GET / by serving index.html
