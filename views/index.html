@@ -73,18 +73,18 @@
 
         <div class="col-md-4 list">
           <h3 class="listheader">Lists</h3>
+          <!-- Trigger/Open The Modal -->
+          <button id="newListBtn">Create New List</button>
           <ul>
             <li class="listItem">Personal</li>
             <li class="listItem">Roommates</li>
           </ul>
           <!-- list modal -->
-            <!-- Trigger/Open The Modal -->
-            <button id="NewListBtn">Create New List</button>
             <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <div id="listModal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
-                <span class="close">&times;</span>
+                <span id="newListClose">&times;</span>
                 <div>
                   <a> Create a New List </a>
                   <form id="newList" method="GET" action="/list">
@@ -99,11 +99,6 @@
       </div>
     </div>
   </div>
-
-<!-- forms -->
-
-
-
 
 
 <!-- footer -->
