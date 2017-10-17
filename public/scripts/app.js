@@ -3,13 +3,47 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
 
-
+  //
   // $.ajax({
-  //   method: "GET",
-  //   url: "/",
-  //   success: onSuccess,
-  //   error: onErr
+  //   method: "POST",
+  //   url: "/api/todos",
+  //   data: $('#NewToDo').serialize(),
+  //   success: postNewTodoSuccess,
+  //   error: postNewTodoErr
   // });
+  //
+  //   function postNewTodoSuccess(responseData) {
+  //     console.log("created new todo!");
+  //     console.log("the new name of the new todo is ", responseData.todo_name);
+  //     //renders a new todo
+  //   }
+  //
+  //   function postNewTodoErr(err){
+  //     console.log("There was an error ", err);
+  //   }
+
+  $('#NewToDo').on('submit', function(e){
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log(formData);
+    $.post('/api/todos', formData, function(todo){
+      console.log(e);
+      renderTodo(todo);
+    })
+    //reset form input values after formData has been captured
+    $(this).trigger("reset");
+  });
+
+//this function will render the inputted todo to a list
+  function renderTodo(todo) {
+    console.log("finish renderingtodo function");
+    console.log(todo);
+    $('#todoList').prepend(`<li>${todo.description}</li>`);
+    // We have a list of todos
+    // for loop through the todo object array and create html template to update the front end
+
+  }
+
 
 // modal functionality
 
