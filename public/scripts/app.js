@@ -4,12 +4,23 @@ $(document).ready(function() {
   console.log('app.js loaded!');
 
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "/",
-  //   success: onSuccess,
-  //   error: onErr
-  // });
+  $.ajax({
+    method: "POST",
+    url: "/api/todos",
+    data: $('#NewToDo').serialize(),
+    success: postNewTodoSuccess,
+    error: postNewTodoErr
+  });
+
+    function postNewTodoSuccess(responseData) {
+      console.log("created new todo!");
+      console.log("the new name of the new todo is ", responseData.todo_name);
+      //renders a new todo
+    }
+
+    function postNewTodoErr(err){
+      console.log("There was an error ", err);
+    }
 
 // modal functionality
 

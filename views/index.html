@@ -59,8 +59,8 @@
                 <span class="close">&times;</span>
                 <div>
                   <a> Create a New To Do </a>
-                  <form id="NewToDo" method="GET" action="/toDo">
-                    <input type="text required" placeholder="Item">
+                  <form id="NewToDo" method="POST" action="api/todos">
+                    <input type="text required" placeholder="Item" name="todo_name">
                     <input type="submit">
                   </form>
                 </div>
