@@ -4,23 +4,23 @@ body {
 
 #welcome {
   font: 'Open Sans', sans-serif;
-  background-color: #345995;
+  background-color: #1A535C;
   height: 300px;
   text-align: center;
-  color: #EAC435;
+  color: #FFE66D;
   padding-top: 5%;
   margin-bottom: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #08171A;
 }
 
 h4 {
-  font-style: italic;
   font-weight: lighter;
+  color: #4ECDC4;
 }
 
 .btn {
   background-color: #b0b8c4;
-  color: #535659;
+  color: #1A535C;
   margin: 20px 10px;
 }
 
@@ -28,22 +28,45 @@ h4 {
   background-color: #e6e8ed;
   color: #345995;
   margin: 20px 10px;
-  border: 1px solid black;
+  border: 1px solid #08171A;
 }
 
 .list {
-  outline: 1px solid black;
-  background-color: #dbdbdb;
+  border: 1px solid #08171A;
+  background-color: #F7FFF7;
+  border-radius: 10px;
 }
 
 .listheader {
   text-align: center;
   margin: 20px;
-  outline: 1px solid black;
+  border: 1px solid #08171A;
+  border-radius: 10px;
   padding: 5px 5px;
-  background-color: #EAC435;
+  background-color: #4ECDC4
 }
 
-li {
-  margin-left: 20px;
+.listItem {
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid #08171A;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-left: 20%;
+  text-align: center;
+  color: #1A535C;
+  font-weight: bolder;
+  background-color: #FFFAE4;
+  border-radius: 10px;
+}
+
+
+footer {
+  width: 100%;
+  background-color: #1A535C;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid #08171A;
+  color: #F7FFF7;
 }

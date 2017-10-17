@@ -8,8 +8,10 @@
      <title>Jibe</title>
 
      <!-- STYLESHEETS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
      <link rel="stylesheet" href="styles/styles.css">
+
 
      <!-- VENDOR SCRIPTS -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -26,6 +28,7 @@
 
   <div class="full-width-div" id="welcome">
     <h1 class="display-3">Welcome to Jibe</h1>
+    <i class="fa fa-check-square-o" aria-hidden="true"></i>
     <h4>Keep you & yours organized</h4>
     <div class="buttons">
       <button class="btn active" type="button">Create Account</button>
@@ -51,8 +54,8 @@
         <div class="col-md-4 list">
           <h3 class="listheader">Lists</h3>
           <ul>
-            <li>Personal</li>
-            <li>Roommates</li>
+            <li class="listItem">Personal</li>
+            <li class="listItem">Roommates</li>
           </ul>
         </div>
         <div class="col-md-1"> </div>
@@ -89,7 +92,11 @@
       </div>
     </div>
 
-
+    <footer class="navbar-default navbar-fixed-bottom">
+      <div class="container-fluid">
+        <span>copyright 2017</span>
+      </div>
+    </footer>
 
   </body>
 </html>
