@@ -144,7 +144,8 @@ a:hover {
 }
 
 .liToDo:hover {
-  font-size: 30px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .strike {
