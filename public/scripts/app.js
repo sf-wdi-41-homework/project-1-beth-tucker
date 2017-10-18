@@ -11,7 +11,6 @@ $(document).ready(function() {
     success: function (json){
       var allTodos = json;
       console.log(allTodos);
-      console.log(allTodos[1].description);
       for (var i = 0; i < allTodos.length; i++) {
         console.log(allTodos[i].description);
         $('#todoList').prepend(`<li>${allTodos[i].description}</li>`);
@@ -34,7 +33,6 @@ $(document).ready(function() {
     var formData = $(this).serialize();
     console.log(formData);
     $.post('/api/todos', formData, function(todo){
-      console.log(e);
       renderTodo(todo);
     })
     //reset form input values after formData has been captured

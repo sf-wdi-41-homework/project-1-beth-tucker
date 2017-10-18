@@ -25,6 +25,7 @@
   // GET /api/todos/:todoId
   function show(req, res) {
     // find one todo by id and send it back as JSON
+  
   }
 
   // DELETE /api/todos/:todoId
@@ -36,6 +37,16 @@
   function update(req, res) {
     // find one todo by id, update it based on request body,
     // and send it back as JSON
+
+    db.Todo.findById(req.params.id, function(err, foundTodo) {
+      if (err) { console.log('todosController.update error', err); }
+      foundTodo.description = req.body.description;
+
+      foundTodo.save(function(err, savedTodo) {
+        if (err) { console.log('updating todo failed'); }
+        res.json(savedTodo);
+      });
+    });
   }
 
   module.exports = {
