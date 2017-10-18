@@ -3,14 +3,16 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
 
+
   //
-  // $.ajax({
-  //   method: "POST",
-  //   url: "/api/todos",
-  //   data: $('#NewToDo').serialize(),
-  //   success: postNewTodoSuccess,
-  //   error: postNewTodoErr
-  // });
+  $.ajax({
+    method: "GET",
+    url: "/api/todos",
+    success: function (json){
+      var allTodos = json;
+      console.log(allTodos);
+    }
+  });
   //
   //   function postNewTodoSuccess(responseData) {
   //     console.log("created new todo!");
@@ -36,8 +38,7 @@ $(document).ready(function() {
 
 //this function will render the inputted todo to a list
   function renderTodo(todo) {
-    console.log("finish renderingtodo function");
-    console.log(todo);
+
     $('#todoList').prepend(`<li>${todo.description}</li>`);
     // We have a list of todos
     // for loop through the todo object array and create html template to update the front end
