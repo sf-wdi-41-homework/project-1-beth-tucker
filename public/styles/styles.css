@@ -1,4 +1,5 @@
 body {
+  font: 'Open Sans', sans-serif;
   background: white;
   background-image:
     radial-gradient(#1A535C 8%, transparent 0),
