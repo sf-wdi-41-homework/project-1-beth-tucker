@@ -22,12 +22,15 @@ $(document).ready(function() {
     }
   });
 
-  // to do functionality (remove, complete)
-
-  $('#todoList').on('click', '.markDone', function(e){
-    $(e.target).addClass("strike");
-    $(e.target).removeAttr("href");
+  // strike through to do item & hide
+  $('#todoList').on('click', '.close', function(e){
+    $(e.target).parent().addClass("hide");
   })
+
+// remove a to do item
+$('#todoList').on('click', '.markDone', function(e){
+  $(e.target).addClass("strike");
+})
 
 
 //Update render todos based off of list selection
@@ -52,10 +55,10 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
-//this function will actually render items
+//this function will actually render items with 'X' to remove
   function renderTodo(todo) {
     $('#todoList').prepend(
-      `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a></li>`
+      `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span class="close">x</span></li>`
     );
   };
 
