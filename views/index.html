@@ -30,23 +30,37 @@
     <i class="fa fa-check-square-o" aria-hidden="true"></i>
     <h4>Keep you & yours organized</h4>
     <div class="buttons">
-      <button class="btn active" type="button">Create Account</button>
-      <button class="btn active" type="button">Log In</button>
+      <!-- <button class="btn active" type="button">Create Account</button>
+      <button class="btn active" type="button">Log In</button> -->
   </div>
   </div>
 
 
 <!-- body and columns -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <select id="listDropDown">
+        <option class="list" value="volvo">List 1</option>
+        <option class="list" value="saab">List 2</option>
+        <option class="list" value="saab">Make New List</option>
+      </select>
+    <div>
+  <div>
+
+
+
 <!-- list of to dos is below -->
+
 
   <div class="row">
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-1"> </div>
-        <div class="col-md-4 list">
-          <h3 class="listheader">To Do Items</h3>
+        <div class="col-md-2"> </div>
+        <div class="col-md-8 list">
+          <h3 class="listheader">To Do Items<button id="toDoBtn"> + </button> </h3>
             <!-- Trigger/Open The Modal -->
-            <button id="toDoBtn">Create To Do</button>
+
           <ul id='todoList'>
             <li>Pay the rent</li>
             <li>Respond to emails</li>
@@ -71,19 +85,19 @@
 
 <!-- list of lists is below -->
 
-        <div class="col-md-4 list">
+        <!-- <div class="col-md-4 list">
           <h3 class="listheader">Lists</h3>
           <!-- Trigger/Open The Modal -->
-          <button id="newListBtn">Create New List</button>
+          <!-- <button id="newListBtn">Create New List</button>
           <ul>
             <li class="listItem">Personal</li>
             <li class="listItem">Roommates</li>
           </ul>
           <!-- list modal -->
             <!-- The Modal -->
-            <div id="listModal" class="modal">
+            <!-- <div id="listModal" class="modal"> -->
               <!-- Modal content -->
-              <div class="modal-content">
+              <!-- <div class="modal-content">
                 <span id="newListClose">&times;</span>
                 <div>
                   <a> Create a New List </a>
@@ -94,9 +108,9 @@
                 </div>
               </div>
             </div>
-        </div>
-        <div class="col-md-1"> </div>
-      </div>
+        </div> -->
+        <!-- <div class="col-md-2"> </div>
+      </div> -->
     </div>
   </div>
 
