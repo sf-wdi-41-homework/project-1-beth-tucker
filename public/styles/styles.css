@@ -1,3 +1,5 @@
+
+
 body {
   font: 'Open Sans', sans-serif;
   background: white;
@@ -123,4 +125,21 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/*list item formatting*/
+
+.liToDo {
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.liToDo:hover {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: #27874A;
 }

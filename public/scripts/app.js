@@ -21,10 +21,14 @@ $(document).ready(function() {
       }
     }
   });
-//change class to done when item is marked done
+
+  // to do functionality (remove, complete)
+
   $('#todoList').on('click', '.markDone', function(e){
-    console.log(e.target);
+    $(e.target).addClass("strike");
+    $(e.target).removeAttr("href");
   })
+
 
 //Update render todos based off of list selection
 
@@ -33,6 +37,7 @@ $(document).ready(function() {
     console.log(e);
 
   })
+
 
 
 // submit functionality for item in modal
@@ -49,11 +54,11 @@ $(document).ready(function() {
 
 //this function will actually render items
   function renderTodo(todo) {
-
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a></li>`
     );
-  }
+  };
+
 
 
 // modal functionality
@@ -78,34 +83,6 @@ $(document).ready(function() {
       if (event.target == toDoModal) {
           toDoModal.style.display = "none";
       }
-  }
-
-  // // New List Modal
-  // // Get the modal
-  // var newListModal = document.getElementById('listModal');
-  // // Get the button that opens the modal
-  // var newListBtn = document.getElementById('newListBtn');
-  // // Get the <span> element that closes the modal
-  // var newListSpan = document.getElementById('newListClose')[0];
-  // // When the user clicks on the button, open the modal
-  // newListBtn.onclick = function() {
-  //     newListModal.style.display = "block";
-  // }
-  // // When the user clicks on <span> (x), close the modal
-  // newListClose.onclick = function() {
-  //     newListModal.style.display = "none";
-  // }
-  // // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function(event) {
-  //     if (event.target == newListModal) {
-  //         newListModal.style.display = "none";
-  //     }
-  // }
-
-// to do functionality (remove, complete)
-// inspired by https://www.w3schools.com/howto/howto_js_todolist.asp
-
-// var renderedToDos = document.getElementsByClassName('liToDo');
-// console.log('Rendered to do: '+ renderedToDos);
+  };
 
 });
