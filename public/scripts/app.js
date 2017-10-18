@@ -25,6 +25,7 @@ $(document).ready(function() {
   // to do functionality (remove, complete)
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).addClass("strike");
+    $(e.target).removeAttr("href");
   })
 
 

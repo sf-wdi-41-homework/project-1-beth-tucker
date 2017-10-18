@@ -129,7 +129,15 @@ footer {
 
 /*list item formatting*/
 
+.liToDo {
+  font-size: 25px;
+  text-decoration: none;
+}
 
+.liToDo:hover {
+  font-size: 30px;
+  text-decoration: none;
+}
 
 .strike {
   text-decoration: line-through;
