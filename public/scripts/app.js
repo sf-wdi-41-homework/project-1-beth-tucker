@@ -11,21 +11,41 @@ $(document).ready(function() {
     success: function (json){
       var allTodos = json;
       console.log(allTodos);
-
-
       // stretch goal -- make a forEach loop
-
       for (var i = 0; i < allTodos.length; i++) {
         console.log(allTodos[i].description);
+        //if _list property of todo ===
         renderTodo(allTodos[i]);
       }
     }
   });
 
+
+  $.ajax({
+    method: "GET",
+    url: "/api/lists",
+    success: function (json){
+      var allLists = json;
+      console.log(allLists);
+    for (var i = 0; i < allLists.length; i++)  {
+      renderList(allLists[i]);
+      }
+    }
+  });
+
+  // to do functionality (remove, complete)
+
+  $('#todoList').on('click', '.markDone', function(e){
+    $(e.target).addClass("strike");
+    $(e.target).removeAttr("href");
+  });
+  
+  
   // strike through to do item & hide
   $('#todoList').on('click', '.close', function(e){
     $(e.target).parent().addClass("hide");
   })
+
 
 // remove a to do item
 $('#todoList').on('click', '.markDone', function(e){
@@ -37,7 +57,8 @@ $('#todoList').on('click', '.markDone', function(e){
 
   $('select').on('change', function(e) {
     var selected = this.value;
-    console.log(e)
+    console.log(selected);
+
   });
 
 
@@ -56,11 +77,18 @@ $('#todoList').on('click', '.markDone', function(e){
 
 //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
+
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span class="close">x</span></li>`
     );
   };
 
+//this function will display the list selected in the dropdown list
+  function renderList(list) {
+    $('#listDropDown').append(
+      `<option class="list">${list.listName}</option>`
+    );
+  }
 
 
 // modal functionality
