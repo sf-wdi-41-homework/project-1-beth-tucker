@@ -22,14 +22,15 @@ $(document).ready(function() {
     }
   });
 
-  // strike through to do item
-
-  $('#todoList').on('click', '.markDone', function(e){
-    $(e.target).addClass("strike");
+  // strike through to do item & hide
+  $('#todoList').on('click', '.close', function(e){
+    $(e.target).parent().addClass("hide");
   })
 
 // remove a to do item
-
+$('#todoList').on('click', '.markDone', function(e){
+  $(e.target).addClass("strike");
+})
 
 
 //Update render todos based off of list selection
