@@ -8,14 +8,9 @@ var Todo = require('./todo');
 var ListSchema = new Schema({
   listName: String,
   userAccess:[ String ],
-  username: String,
-  email: String,
-  password: String,
-  userImage: String,
-  // todos: [TodoSchema]
 });
 
-// user model
+// list model
 var List = mongoose.model('List', ListSchema);
 
 module.exports = List;

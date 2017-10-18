@@ -25,12 +25,16 @@
   // GET /api/todos/:todoId
   function show(req, res) {
     // find one todo by id and send it back as JSON
-  
+
   }
 
   // DELETE /api/todos/:todoId
   function destroy(req, res) {
     // find one todo by id, delete it, and send it back as JSON
+    db.Todo.findByIdAndRemove(req.params.todo_id, function(err, deletedTodo) {
+      if (err) { console.log('error', err); }
+      res.send(200);
+    });
   }
 
   // PUT or PATCH /api/todos/:todoId

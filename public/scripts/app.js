@@ -23,10 +23,21 @@ $(document).ready(function() {
   });
 
   // to do functionality (remove, complete)
+
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).addClass("strike");
     $(e.target).removeAttr("href");
   })
+
+
+//Update render todos based off of list selection
+
+  $('#listDropDown').on('click', function(e){
+    e.preventDefault();
+    console.log(e);
+
+  })
+
 
 
 // submit functionality for item in modal
@@ -47,6 +58,7 @@ $(document).ready(function() {
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a></li>`
     );
   };
+
 
 
 // modal functionality
