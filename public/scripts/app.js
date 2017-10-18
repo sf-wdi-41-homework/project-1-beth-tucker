@@ -35,11 +35,10 @@ $('#todoList').on('click', '.markDone', function(e){
 
 //Update render todos based off of list selection
 
-  $('#listDropDown').on('click', function(e){
-    e.preventDefault();
-    console.log(e);
-
-  })
+  $('select').on('change', function(e) {
+    var selected = this.value;
+    console.log(e)
+  });
 
 
 
