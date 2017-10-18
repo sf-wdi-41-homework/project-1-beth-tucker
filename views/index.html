@@ -62,15 +62,14 @@
             <!-- Trigger/Open The Modal -->
 
           <ul id='todoList'>
-            <li>Pay the rent</li>
-            <li>Respond to emails</li>
+         <!-- this is where to dos are added through jquery on load  -->
           </ul>
           <!-- to do modal -->
             <!-- The Modal -->
             <div id="myModal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
-                <span class="close">&times;</span>
+                <span id="newListClose" class="close">&times;</span>
                 <div>
                   <a> Create a New To Do </a>
                   <form id="NewToDo" method="POST" action="api/todos">
