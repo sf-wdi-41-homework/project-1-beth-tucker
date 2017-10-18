@@ -11,7 +11,10 @@ $(document).ready(function() {
     success: function (json){
       var allTodos = json;
       console.log(allTodos);
+
+
       // stretch goal -- make a forEach loop
+
       for (var i = 0; i < allTodos.length; i++) {
         console.log(allTodos[i].description);
         renderTodo(allTodos[i]);
