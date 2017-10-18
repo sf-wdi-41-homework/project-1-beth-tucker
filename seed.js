@@ -9,29 +9,47 @@ var newLists = [{
 ];
 
 var newTodos = [{
-  description: "ignore JDK Java tool thingy",
+  description: "Walk the dog to Bernal Heights",
   duedate: "WHEN YOU GET around to it",
   recurring: true,
-  username: "tuckerb",
+  username: "bwitten",
   isCompleted: false,
   isDeleted: false,
   // _list: {}
 }, {
-  description: "Put out fires in Santa Rosa",
+  description: "Look for rocks at Land's End",
   duedate: "As soon as possible",
   recurring: false,
-  username: "tuckerb",
+  username: "bwitten",
   isCompleted: false,
   isDeleted: false,
   // _list: {}
 }];
 
-db.Todo.remove({}, function(err, succ){
-  if(err){return console.log("ERR", err)}
-  console.log("Removed everything");
-  db.Todo.create(newTodos, function(err, succ){
+  db.List.remove({}, function(err, succ){
     if(err){return console.log("ERR", err)}
-    console.log(succ);
-    process.exit(0);
-  });
-});
+    console.log("REMOVED ALL LISTS.");
+    db.List.create(newLists, function(err, createdLists){
+      if(err){return console.log("ERR", err)}
+      // we have lists.
+
+      createdLists.forEach(function(list, index){
+        newTodos[index]._list = list._id
+        db.Todo.create(newTodos[index], function(err, succ){
+          if(err){return console.log("ERR", err)}
+          console.log(succ);
+          // process.exit(0);
+        });
+      })
+      // db.Todo.remove({}, function(err, succ){
+      //   if(err){return console.log("ERR", err)}
+      //   console.log("Removed everything");
+      //   db.Todo.create(newTodos, function(err, succ){
+      //     if(err){return console.log("ERR", err)}
+      //     console.log(succ);
+      //     process.exit(0);
+      //   });
+      // });
+
+    })
+  })
