@@ -129,6 +129,11 @@ footer {
 
 /*list item formatting*/
 
+a:link,
+a:visited {
+  color: #1A535C
+}
+
 a:hover {
   text-decoration: none;
 }
