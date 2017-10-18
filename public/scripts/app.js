@@ -21,20 +21,18 @@ $(document).ready(function() {
       }
     }
   });
-
+//change class to done when item is marked done
   $('#todoList').on('click', '.markDone', function(e){
     console.log(e.target);
   })
-  //
-  //   function postNewTodoSuccess(responseData) {
-  //     console.log("created new todo!");
-  //     console.log("the new name of the new todo is ", responseData.todo_name);
-  //     //renders a new todo
-  //   }
-  //
-  //   function postNewTodoErr(err){
-  //     console.log("There was an error ", err);
-  //   }
+
+//Update render todos based off of list selection
+
+  $('#listDropDown').on('click', function(e){
+    e.preventDefault();
+    console.log(e);
+
+  })
 
 
 // submit functionality for item in modal
@@ -55,7 +53,6 @@ $(document).ready(function() {
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a></li>`
     );
-
   }
 
 

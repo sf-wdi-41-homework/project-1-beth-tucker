@@ -1,6 +1,7 @@
 // require mongoose and connect to database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/jibe');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/jibe', {useMongoClient: true});
 
 var User = require('./user');
 var Todo = require('./todo');
