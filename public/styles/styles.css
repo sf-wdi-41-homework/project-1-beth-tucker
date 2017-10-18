@@ -129,6 +129,15 @@ footer {
 
 /*list item formatting*/
 
+a:link,
+a:visited {
+  color: #1A535C
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .liToDo {
   font-size: 25px;
   text-decoration: none;
@@ -136,10 +145,13 @@ footer {
 
 .liToDo:hover {
   font-size: 30px;
-  text-decoration: none;
 }
 
 .strike {
   text-decoration: line-through;
-  color: #27874A;
+  color: #4a4f4b;
+}
+
+.hide {
+  display: none;
 }
