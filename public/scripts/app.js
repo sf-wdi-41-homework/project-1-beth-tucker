@@ -4,19 +4,27 @@ $(document).ready(function() {
   console.log('app.js loaded!');
 
 
-  //
+  // on load adding all items
   $.ajax({
     method: "GET",
     url: "/api/todos",
     success: function (json){
       var allTodos = json;
       console.log(allTodos);
+
+
+      // stretch goal -- make a forEach loop
+
       for (var i = 0; i < allTodos.length; i++) {
         console.log(allTodos[i].description);
-        $('#todoList').prepend(`<li>${allTodos[i].description}</li>`);
+        renderTodo(allTodos[i]);
       }
     }
   });
+
+  $('#todoList').on('click', '.markDone', function(e){
+    console.log(e.target);
+  })
   //
   //   function postNewTodoSuccess(responseData) {
   //     console.log("created new todo!");
@@ -28,6 +36,8 @@ $(document).ready(function() {
   //     console.log("There was an error ", err);
   //   }
 
+
+// submit functionality for item in modal
   $('#NewToDo').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
@@ -39,12 +49,12 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
-//this function will render the inputted todo to a list
+//this function will actually render items
   function renderTodo(todo) {
 
-    $('#todoList').prepend(`<li>${todo.description}</li>`);
-    // We have a list of todos
-    // for loop through the todo object array and create html template to update the front end
+    $('#todoList').prepend(
+      `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a></li>`
+    );
 
   }
 
@@ -95,5 +105,10 @@ $(document).ready(function() {
   //     }
   // }
 
+// to do functionality (remove, complete)
+// inspired by https://www.w3schools.com/howto/howto_js_todolist.asp
+
+// var renderedToDos = document.getElementsByClassName('liToDo');
+// console.log('Rendered to do: '+ renderedToDos);
 
 });
