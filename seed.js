@@ -9,18 +9,18 @@ var newLists = [{
 ];
 
 var newTodos = [{
-  description: "Walk the dog to Bernal Heights",
+  description: "ignore JDK Java tool thingy",
   duedate: "WHEN YOU GET around to it",
   recurring: true,
-  username: "bwitten",
+  username: "tuckerb",
   isCompleted: false,
   isDeleted: false,
   // _list: {}
 }, {
-  description: "Look for rocks at Land's End",
+  description: "Put out fires in Santa Rosa",
   duedate: "As soon as possible",
   recurring: false,
-  username: "bwitten",
+  username: "tuckerb",
   isCompleted: false,
   isDeleted: false,
   // _list: {}

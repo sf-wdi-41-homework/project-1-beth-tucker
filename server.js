@@ -30,6 +30,9 @@
 
   app.delete('/api/todos/:todo_id', controllers.todos.destroy);
 
+  // add a route so server will to respond to Ajax request and serve the front end with db data
+  app.get('/api/lists', controllers.lists.index);
+
 
 
 

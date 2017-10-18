@@ -11,13 +11,23 @@ $(document).ready(function() {
     success: function (json){
       var allTodos = json;
       console.log(allTodos);
-
-
       // stretch goal -- make a forEach loop
-
       for (var i = 0; i < allTodos.length; i++) {
         console.log(allTodos[i].description);
+        //if _list property of todo ===
         renderTodo(allTodos[i]);
+      }
+    }
+  });
+
+  $.ajax({
+    method: "GET",
+    url: "/api/lists",
+    success: function (json){
+      var allLists = json;
+      console.log(allLists);
+    for (var i = 0; i < allLists.length; i++)  {
+      renderList(allLists[i]);
       }
     }
   });
@@ -27,14 +37,15 @@ $(document).ready(function() {
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).addClass("strike");
     $(e.target).removeAttr("href");
-  })
+  });
 
 
 //Update render todos based off of list selection
 
   $('select').on('change', function(e) {
     var selected = this.value;
-    console.log(e)
+    console.log(selected);
+
   });
 
 
@@ -53,11 +64,18 @@ $(document).ready(function() {
 
 //this function will actually render items
   function renderTodo(todo) {
+
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a></li>`
     );
   };
 
+//this function will display the list selected in the dropdown list
+  function renderList(list) {
+    $('#listDropDown').append(
+      `<option class="list">${list.listName}</option>`
+    );
+  }
 
 
 // modal functionality
