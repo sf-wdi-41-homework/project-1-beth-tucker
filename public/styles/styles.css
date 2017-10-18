@@ -1,11 +1,16 @@
 body {
-  font: 'Open Sans', sans-serif;
+  background: white;
+  background-image:
+    radial-gradient(#1A535C 8%, transparent 0),
+    radial-gradient(#1A535C 8%, transparent 0);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
 }
 
 #welcome {
   font: 'Open Sans', sans-serif;
   background-color: #1A535C;
-  height: 300px;
+  height: 250px;
   text-align: center;
   color: #FFE66D;
   padding-top: 5%;
@@ -13,15 +18,23 @@ body {
   border-bottom: 1px solid #08171A;
 }
 
+#listDropDown {
+  margin-left: 87%;
+  border: 1px solid #08171A;
+}
+
 h4 {
   font-weight: lighter;
   color: #4ECDC4;
 }
 
-.btn {
+button {
+  float: right;
   background-color: #b0b8c4;
   color: #1A535C;
-  margin: 20px 10px;
+  border-radius: 25px;
+  border: 1px solid #08171A;
+  font-size: 20px;
 }
 
 .btn:hover {
@@ -90,10 +103,10 @@ footer {
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%;
 }
 
 /* The Close Button */
