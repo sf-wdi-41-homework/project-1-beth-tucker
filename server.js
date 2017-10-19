@@ -32,7 +32,7 @@
 
   // add a route so server will to respond to Ajax request and serve the front end with db data
   app.get('/api/lists', controllers.lists.index);
-  app.get('/api/lists/:list_id', controllers.lists.show);
+  app.get('/api/lists/:listName', controllers.lists.show);
 
   app.post('/api/lists', controllers.lists.create);
   app.put('/api/lists/:list_id', controllers.lists.update);

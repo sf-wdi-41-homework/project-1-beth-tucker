@@ -25,16 +25,15 @@ function create(req, res) {
 // GET /api/lists/:listId
 function show(req, res) {
   // find one list by id and send it back as JSON
-  db.Todo.findOne({_list: selected})
-    .populate('_list')
-    .exec(function (err, todos) {
-      if (err){
-        console.log(err);
-      }
-      if (todos._list === List.listName){
-        console.log("we found a match");
-      }
-    })
+  db.List.findOne({listName: req.params.listName}, function (err, foundList) {
+      if (err){ console.log(err);}
+      db.Todo.find({_list: foundList._id}, function(err, todosForList){
+        console.log(todosForList);
+        res.json(todosForList)
+      })
+
+
+    });
   //remove all items from display
     //if the display selection === listName of the todo then
 

@@ -15,7 +15,6 @@ var newTodos = [{
   username: "tuckerb",
   isCompleted: false,
   isDeleted: false,
-  // _list: {}
 }, {
   description: "Put out fires in Santa Rosa",
   duedate: "As soon as possible",
@@ -23,7 +22,6 @@ var newTodos = [{
   username: "tuckerb",
   isCompleted: false,
   isDeleted: false,
-  // _list: {}
 }];
 
   db.List.remove({}, function(err, succ){
@@ -41,15 +39,14 @@ var newTodos = [{
           // process.exit(0);
         });
       })
-      // db.Todo.remove({}, function(err, succ){
-      //   if(err){return console.log("ERR", err)}
-      //   console.log("Removed everything");
-      //   db.Todo.create(newTodos, function(err, succ){
-      //     if(err){return console.log("ERR", err)}
-      //     console.log(succ);
-      //     process.exit(0);
-      //   });
-      // });
+      db.Todo.remove({}, function(err, succ){
+        if(err){return console.log("ERR", err)}
+        console.log("Removed all todos");
+        // db.Todo.create(newTodos, function(err, succ){
+        //   if(err){return console.log("ERR", err)}
+        //   console.log(succ);
+          process.exit(0);
+        });
+      });
 
-    })
-  })
+    });
