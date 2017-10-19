@@ -10,7 +10,7 @@
 
   // POST /api/todos
   function create(req, res) {
-    // create an list based on request body and send it back as JSON
+    // create a todo based on request body and send it back as JSON
     var inputTodo = req.body;
     //test input being submitted to db
     console.log(inputTodo);

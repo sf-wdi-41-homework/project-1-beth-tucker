@@ -32,9 +32,12 @@
 
   // add a route so server will to respond to Ajax request and serve the front end with db data
   app.get('/api/lists', controllers.lists.index);
-  app.get('/api/lists/:list_Id', controllers.lists.show)
+  app.get('/api/lists/:list_id', controllers.lists.show);
 
+  app.post('/api/lists', controllers.lists.create);
+  app.put('/api/lists/:list_id', controllers.lists.update);
 
+  app.delete('/api/lists/:list_id', controllers.lists.destroy);
 
 
   // tell the app to listen on a port so that the server will start
