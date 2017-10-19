@@ -61,6 +61,12 @@ $(document).ready(function() {
     var selected = this.value;
     console.log(selected);
 
+    $.ajax({
+      method: "GET",
+      action: "/api/todos/:todo_id",
+      
+    })
+
 
   });
 
