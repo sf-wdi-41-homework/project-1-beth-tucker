@@ -113,13 +113,16 @@ footer {
 }
 
 /* The Close Button */
-.close {
+.close,
+.closeList {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
+.closeList:hover,
+.closeList:focus,
 .close:hover,
 .close:focus {
     color: black;
