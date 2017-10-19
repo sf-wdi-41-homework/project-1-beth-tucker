@@ -36,17 +36,20 @@ var newTodos = [{
         db.Todo.create(newTodos[index], function(err, succ){
           if(err){return console.log("ERR", err)}
           console.log(succ);
-          // process.exit(0);
+          process.exit(0);
         });
-      })
+      });
+
+
       db.Todo.remove({}, function(err, succ){
         if(err){return console.log("ERR", err)}
         console.log("Removed all todos");
-        // db.Todo.create(newTodos, function(err, succ){
-        //   if(err){return console.log("ERR", err)}
-        //   console.log(succ);
+        db.Todo.create(newTodos, function(err, succ){
+          if(err){return console.log("ERR", err)}
+          console.log(succ);
           process.exit(0);
         });
       });
 
     });
+});

@@ -33,20 +33,25 @@ $(document).ready(function() {
     }
   });
 
-  //Update render todos based off of list selection
 
+  //Update render todos based off of list selection
   $('select').on('change', function(e) {
     var selected = this.value;
     var id = $(this).data('id');
     console.log(this);
     console.log(selected);
-    console.log(id);
-
     $.ajax({
       method: "GET",
       url: `/api/lists/${selected}`,
+      // json is all to dos that match list selection
       success: function(json){
+        // call remove once and then call render for each item returned in JSON
+        removeTodos();
         console.log(json);
+        var specificToDos = json;
+        for (var i=0; i < specificToDos.length; i++) {
+          renderTodo(specificToDos[i]);
+        }
       },
       error: function(a, b, c){
         console.log(b);
@@ -73,7 +78,6 @@ $(document).ready(function() {
   })
 
 
-
 // submit functionality for item in modal
   $('#NewToDo').on('submit', function(e){
     e.preventDefault();
@@ -97,9 +101,14 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+// this function will remove all rendered To Dos -- we do this for new list selection
+function removeTodos(todo) {
+  console.log("remove ToDos called");
+  $('#todoList').empty(".liToDo");
+}
+
 //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
-
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span class="close">x</span></li>`
     );
