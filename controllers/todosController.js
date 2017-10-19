@@ -28,6 +28,7 @@
 
   }
 
+//*Not linked currently via Ajax request*
   // DELETE /api/todos/:todoId
   function destroy(req, res) {
     // find one todo by id, delete it, and send it back as JSON

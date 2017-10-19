@@ -4,7 +4,7 @@ $(document).ready(function() {
   console.log('app.js loaded!');
 
 
-  // on load adding all items
+  // on load render all todos
   $.ajax({
     method: "GET",
     url: "/api/todos",
@@ -20,7 +20,7 @@ $(document).ready(function() {
     }
   });
 
-
+  // on load render all lists
   $.ajax({
     method: "GET",
     url: "/api/lists",
@@ -33,7 +33,28 @@ $(document).ready(function() {
     }
   });
 
+  //Update render todos based off of list selection
 
+  $('select').on('change', function(e) {
+    var selected = this.value;
+    var id = $(this).data('id');
+    console.log(this);
+    console.log(selected);
+    console.log(id);
+
+    $.ajax({
+      method: "GET",
+      url: `/api/lists/${selected}`,
+      success: function(json){
+        console.log(json);
+      },
+      error: function(a, b, c){
+        console.log(b);
+        console.log(c);
+      }
+
+    })
+  });
 
   // to do functionality (remove, complete)
 
@@ -53,22 +74,6 @@ $(document).ready(function() {
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).addClass("strike");
   })
-
-
-//Update render todos based off of list selection
-
-  $('select').on('change', function(e) {
-    var selected = this.value;
-    console.log(selected);
-
-    $.ajax({
-      method: "GET",
-      action: "/api/todos/:todo_id",
-
-    })
-
-
-  });
 
 
 
@@ -106,7 +111,7 @@ $(document).ready(function() {
 //this function will display the list selected in the dropdown list
   function renderList(list) {
     $('#listDropDown').append(
-      `<option class="list">${list.listName}</option>`
+      `<option class="list" data-id="${list._id}">${list.listName}</option>`
     );
   }
 
