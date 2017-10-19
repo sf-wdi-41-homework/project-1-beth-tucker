@@ -52,10 +52,13 @@
         <div class="modal-content">
           <span id="newListClose" class="closeList">&times;</span>
           <div>
-            <a> Create a New List <br> Lists are where To Dos live </a>
+            <p> List Manager <br> Lists are where To Dos live </p>
+            <p>Here are your active lists: </p>
+            <p id="activeLists"> </p>
+            <p>Add a new list: </p>
             <form id="NewList" method="POST" action="api/lists">
               <input type="text required" placeholder="List Name" name="listName">
-              <input type="submit">
+              <input type="submit" value="Create List">
             </form>
           </div>
         </div>

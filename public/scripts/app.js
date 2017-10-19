@@ -61,9 +61,6 @@ $(document).ready(function() {
         var specificToDos = json.todos;
         $('#todoListHeader').html(selected + ' to do items');
         $('#listIdInput').val(json._id);
-
-        // activeList  =
-
         for(var i=0; i < specificToDos.length; i++) {
           renderTodo(specificToDos[i]);
         }
@@ -132,6 +129,9 @@ function removeTodos(todo) {
   function renderList(list) {
     $('#listDropDown').append(
       `<option class="list" data-id="${list._id}">${list.listName}</option>`
+    );
+    $('#activeLists').append(
+      `<option class="list" data-id="${list._id}">${list.listName}<span class="close">X</span></option>`
     );
   }
 
