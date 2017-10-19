@@ -11,7 +11,15 @@ function index(req, res) {
 // POST /api/lists
 function create(req, res) {
   // create an list based on request body and send it back as JSON
+  var inputList = req.body;
+  //test input being submitted to db
+  console.log(inputList);
 
+  db.List.create(inputList, function(err, list){
+    if (err) {console.log('error', err);}
+    console.log(list);
+    res.json(list);
+  });
 }
 
 // GET /api/lists/:listId

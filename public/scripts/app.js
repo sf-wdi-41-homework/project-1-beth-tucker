@@ -64,7 +64,7 @@ $(document).ready(function() {
     $.ajax({
       method: "GET",
       action: "/api/todos/:todo_id",
-      
+
     })
 
 
@@ -79,6 +79,17 @@ $(document).ready(function() {
     console.log(formData);
     $.post('/api/todos', formData, function(todo){
       renderTodo(todo);
+    })
+    //reset form input values after formData has been captured
+    $(this).trigger("reset");
+  });
+
+  $('#NewList').on('submit', function(e){
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log(formData);
+    $.post('/api/lists', formData, function(list){
+      renderList(list);
     })
     //reset form input values after formData has been captured
     $(this).trigger("reset");
