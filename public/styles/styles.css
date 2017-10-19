@@ -1,7 +1,7 @@
 
 
 body {
-  font: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: white;
   background-image:
     radial-gradient(#1A535C 8%, transparent 0),
@@ -32,12 +32,11 @@ h4 {
 }
 
 button {
-  float: right;
   background-color: #b0b8c4;
   color: #1A535C;
   border-radius: 25px;
   border: 1px solid #08171A;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn:hover {
@@ -47,19 +46,25 @@ button {
   border: 1px solid #08171A;
 }
 
+#toDoBtn,
+#ListBtn {
+  float:right;
+}
+
+/*.list is light colored to do box*/
 .list {
   border: 1px solid #08171A;
   background-color: #F7FFF7;
   border-radius: 10px;
 }
 
-.listheader {
+#todoHeader {
   text-align: center;
   margin: 20px;
   border: 1px solid #08171A;
   border-radius: 10px;
   padding: 5px 5px;
-  background-color: #4ECDC4
+  background-color: #4ECDC4;
 }
 
 .listItem {
