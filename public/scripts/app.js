@@ -2,14 +2,10 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
-  activeList = "";
 
-  // allLists = [
-  //   {id: blah,
-  //   name: }
-  // ]
   $('#todoList').on('click', '.close', function(e){
     // console.log("this is where delete goes");
+
 
     $.ajax({
       method: "DELETE",
@@ -68,6 +64,8 @@ $(document).ready(function() {
         removeTodos();
         console.log(json._id);
         var specificToDos = json.todos;
+        $('#emptyList').remove();
+        $('#todoModalHeader').html('Add a new to do to '+selected);
         $('#todoListHeader').html(selected + ' to do items');
         $('#listIdInput').val(json._id);
         for(var i=0; i < specificToDos.length; i++) {
