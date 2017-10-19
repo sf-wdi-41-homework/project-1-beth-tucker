@@ -33,6 +33,7 @@
   function destroy(req, res) {
     // find one todo by id, delete it, and send it back as JSON
     db.Todo.findByIdAndRemove(req.params.todo_id, function(err, deletedTodo) {
+      console.log(deletedTodo);
       if (err) { console.log('error', err); }
       res.send(200);
     });

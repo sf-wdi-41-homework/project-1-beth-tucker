@@ -3,6 +3,17 @@
 $(document).ready(function() {
   console.log('app.js loaded!');
 
+  $('#todoList').on('click', '.close', function(e){
+    // console.log("this is where delete goes");
+
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/todos/" + $(this).attr('_id'),
+      success: deleteTodoSuccess,
+      error: deleteTodoError
+    });
+  });
   // on load render all todos
   $.ajax({
     method: "GET",
@@ -67,26 +78,35 @@ $(document).ready(function() {
       }
 
     })
+
+
+    //end of doc.ready
   });
+
+  function deleteTodoSuccess(json) {
+  var todo = json;
+  console.log(json, "Item has been deleted");
+  var todoId = todo._id;
+
+}
+function deleteTodoError(){
+  console.log('Delete failed');
+}
 
   // to do functionality (remove, complete)
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).addClass("strike");
     $(e.target).removeAttr("href");
+
   });
 
-  // strike through to do item & hide
+  //strike through to do item & hide
   $('#todoList').on('click', '.close', function(e){
     $(e.target).parent().addClass("hide");
   })
 
-  // remove a to do item
-  $('#todoList').on('click', '.markDone', function(e){
-    $(e.target).addClass("strike");
-  })
 
-
-// submit functionality for item in modal
+  // submit functionality for item in modal
   $('#NewToDo').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
@@ -117,7 +137,7 @@ function removeTodos(todo) {
 //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
     $('#todoList').prepend(
-      `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span class="close">x</span></li>`
+      `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li>`
     );
   };
 

@@ -22,7 +22,15 @@ var newTodos = [{
   username: "tuckerb",
   isCompleted: false,
   isDeleted: false,
-}];
+}, {
+  description: "Finish beautifying the front-end",
+  duedate: "Friday",
+  recurring: false,
+  username: "bethw",
+  isCompleted: false,
+  isDeleted: false,
+}
+];
 
   db.List.remove({}, function(err, succ){
     if(err){return console.log("ERR", err)}
@@ -36,11 +44,9 @@ var newTodos = [{
         db.Todo.create(newTodos[index], function(err, succ){
           if(err){return console.log("ERR", err)}
           console.log(succ);
-          process.exit(0);
+          // process.exit(0);
         });
-      });
-
-
+      })
       db.Todo.remove({}, function(err, succ){
         if(err){return console.log("ERR", err)}
         console.log("Removed all todos");
@@ -52,4 +58,4 @@ var newTodos = [{
       });
 
     });
-});
+  });
