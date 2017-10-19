@@ -36,18 +36,15 @@ $(document).ready(function() {
 
 
   // to do functionality (remove, complete)
-
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).addClass("strike");
     $(e.target).removeAttr("href");
   });
 
-
   // strike through to do item & hide
   $('#todoList').on('click', '.close', function(e){
     $(e.target).parent().addClass("hide");
   })
-
 
   // remove a to do item
   $('#todoList').on('click', '.markDone', function(e){
@@ -136,7 +133,7 @@ $(document).ready(function() {
   };
 
 
-  // New List Modal -- updating
+  // New List Modal
   // Get the modal
   var listModal = document.getElementById('listModal');
   // Get the button that opens the modal
