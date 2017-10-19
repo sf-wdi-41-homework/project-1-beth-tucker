@@ -49,6 +49,7 @@ $(document).ready(function() {
     console.log("TARGET", e.target);
     console.log($(this).attr("data-id"));
     console.log(selected);
+
     $.ajax({
       method: "GET",
       url: `/api/lists/${selected}`,
@@ -58,6 +59,8 @@ $(document).ready(function() {
         removeTodos();
         console.log(json._id);
         var specificToDos = json.todos;
+        $('#todoListHeader').html(selected + ' to do items');
+        $('#listIdInput').val(json._id);
 
         // activeList  =
 
