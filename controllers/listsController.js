@@ -28,8 +28,11 @@ function show(req, res) {
   db.List.findOne({listName: req.params.listName}, function (err, foundList) {
       if (err){ console.log(err);}
       db.Todo.find({_list: foundList._id}, function(err, todosForList){
-        console.log(todosForList);
-        res.json(todosForList)
+        jsonPayload = foundList.toObject();
+        jsonPayload.todos = todosForList;
+        console.log(jsonPayload);
+
+        res.json(jsonPayload);
       })
 
 

@@ -2,7 +2,12 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+  activeList = "";
 
+  // allLists = [
+  //   {id: blah,
+  //   name: }
+  // ]
 
   // on load render all todos
   $.ajax({
@@ -33,20 +38,32 @@ $(document).ready(function() {
     }
   });
 
+
   //Update render todos based off of list selection
-
   $('select').on('change', function(e) {
-    var selected = this.value;
-    var id = $(this).data('id');
-    console.log(this);
-    console.log(selected);
-    console.log(id);
 
+    var selected = this.value;
+    var id = $(this).attr("class");
+    console.log(id);
+    console.log(this);
+    console.log("TARGET", e.target);
+    console.log($(this).attr("data-id"));
+    console.log(selected);
     $.ajax({
       method: "GET",
       url: `/api/lists/${selected}`,
+      // json is all to dos that match list selection
       success: function(json){
-        console.log(json);
+        // call remove once and then call render for each item returned in JSON
+        removeTodos();
+        console.log(json._id);
+        var specificToDos = json.todos;
+
+        // activeList  =
+
+        for(var i=0; i < specificToDos.length; i++) {
+          renderTodo(specificToDos[i]);
+        }
       },
       error: function(a, b, c){
         console.log(b);
@@ -73,7 +90,6 @@ $(document).ready(function() {
   })
 
 
-
 // submit functionality for item in modal
   $('#NewToDo').on('submit', function(e){
     e.preventDefault();
@@ -97,9 +113,13 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+// this function will remove all rendered To Dos -- we do this for new list selection
+function removeTodos(todo) {
+  $('#todoList').empty(".liToDo");
+}
+
 //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
-
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span class="close">x</span></li>`
     );
