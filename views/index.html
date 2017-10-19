@@ -40,18 +40,32 @@
 
 <!-- body and columns -->
 
+<!-- list functionality -->
+
   <div class="row">
     <div class="col-md-12">
       <select id="listDropDown">
-        //this is where allLists in db will populate on page load
+        <!-- //this is where allLists in db will populate on page load -->
       </select>
+      <button id="ListBtn"> + </button>
+      <div id="listModal" class="modal">
+        <div class="modal-content">
+          <span id="newListClose" class="closeList">&times;</span>
+          <div>
+            <a> Create a New List <br> Lists are where To Dos live </a>
+            <form id="NewToDo" method="POST" action="api/todos">
+              <input type="text required" placeholder="List Name" name="description">
+              <input type="submit">
+            </form>
+          </div>
+        </div>
+      </div>
     <div>
   <div>
 
 
 
 <!-- list of to dos is below -->
-
 
   <div class="row">
     <div class="col-md-12">
@@ -69,11 +83,11 @@
             <div id="myModal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
-                <span id="newListClose" class="close">&times;</span>
+                <span id="toDoClose" class="close">&times;</span>
                 <div>
                   <a> Create a New To Do </a>
                   <form id="NewToDo" method="POST" action="api/todos">
-                    <input type="text required" placeholder="Item" name="description">
+                    <input type="text required" placeholder="To Do" name="description">
                     <input type="submit">
                   </form>
                 </div>
@@ -81,46 +95,17 @@
             </div>
         </div>
         <div class="col-md-2"> </div>
-
-<!-- list of lists is below -->
-
-        <!-- <div class="col-md-4 list">
-          <h3 class="listheader">Lists</h3>
-          <!-- Trigger/Open The Modal -->
-          <!-- <button id="newListBtn">Create New List</button>
-          <ul>
-            <li class="listItem">Personal</li>
-            <li class="listItem">Roommates</li>
-          </ul>
-          <!-- list modal -->
-            <!-- The Modal -->
-            <!-- <div id="listModal" class="modal"> -->
-              <!-- Modal content -->
-              <!-- <div class="modal-content">
-                <span id="newListClose">&times;</span>
-                <div>
-                  <a> Create a New List </a>
-                  <form id="newList" method="GET" action="/list">
-                    <input type="text" placeholder="List Name">
-                    <input type="submit">
-                  </form>
-                </div>
-              </div>
-            </div>
-        </div> -->
-        <!-- <div class="col-md-2"> </div>
-      </div> -->
     </div>
   </div>
 
 
 <!-- footer -->
 
-    <footer class="navbar-default navbar-fixed-bottom">
+    <!-- <footer class="navbar-default navbar-fixed-bottom">
       <div class="container-fluid">
         <span>beth witten // tucker bolding</span>
       </div>
-    </footer>
+    </footer> -->
 
   </body>
 </html>

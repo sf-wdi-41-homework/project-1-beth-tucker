@@ -60,11 +60,13 @@ $(document).ready(function() {
   $('select').on('change', function(e) {
     var selected = this.value;
     console.log(selected);
+
     $.ajax({
       method: "GET",
       action: "/api/todos/:todo_id",
       
     })
+
 
   });
 
@@ -119,6 +121,29 @@ $(document).ready(function() {
   window.onclick = function(event) {
       if (event.target == toDoModal) {
           toDoModal.style.display = "none";
+      }
+  };
+
+
+  // New List Modal -- updating
+  // Get the modal
+  var listModal = document.getElementById('listModal');
+  // Get the button that opens the modal
+  var listBtn = document.getElementById('ListBtn');
+  // Get the <span> element that closes the modal
+  var listSpan = document.getElementsByClassName("closeList")[0];
+  // When the user clicks on the button, open the modal
+  listBtn.onclick = function() {
+      listModal.style.display = "block";
+  }
+  // When the user clicks on <span> (x), close the modal
+  listSpan.onclick = function() {
+      listModal.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == listModal) {
+          listModal.style.display = "none";
       }
   };
 
