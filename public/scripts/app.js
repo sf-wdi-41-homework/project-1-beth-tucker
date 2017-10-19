@@ -2,7 +2,12 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+  activeList = "";
 
+  // allLists = [
+  //   {id: blah,
+  //   name: }
+  // ]
 
   // on load render all todos
   $.ajax({
@@ -36,9 +41,13 @@ $(document).ready(function() {
 
   //Update render todos based off of list selection
   $('select').on('change', function(e) {
+
     var selected = this.value;
-    var id = $(this).data('id');
+    var id = $(this).attr("class");
+    console.log(id);
     console.log(this);
+    console.log("TARGET", e.target);
+    console.log($(this).attr("data-id"));
     console.log(selected);
     $.ajax({
       method: "GET",
@@ -47,9 +56,12 @@ $(document).ready(function() {
       success: function(json){
         // call remove once and then call render for each item returned in JSON
         removeTodos();
-        console.log(json);
-        var specificToDos = json;
-        for (var i=0; i < specificToDos.length; i++) {
+        console.log(json._id);
+        var specificToDos = json.todos;
+
+        // activeList  =
+
+        for(var i=0; i < specificToDos.length; i++) {
           renderTodo(specificToDos[i]);
         }
       },
@@ -103,7 +115,6 @@ $(document).ready(function() {
 
 // this function will remove all rendered To Dos -- we do this for new list selection
 function removeTodos(todo) {
-  console.log("remove ToDos called");
   $('#todoList').empty(".liToDo");
 }
 
