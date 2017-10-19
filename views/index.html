@@ -45,6 +45,7 @@
   <div class="row">
     <div class="col-md-12">
       <select id="listDropDown">
+        <option id="emptyList"> </option>
         <!-- //this is where allLists in db will populate on page load -->
       </select>
       <button id="ListBtn"> + </button>
@@ -75,7 +76,7 @@
       <div class="row">
         <div class="col-md-2"> </div>
         <div class="col-md-8 list">
-          <h3 class="listheader" id="todoListHeader">To Do Items </h3>
+          <h3 class="listheader" id="todoListHeader">All Open To Dos </h3>
           <button id="toDoBtn"> + </button>
             <!-- Trigger/Open The Modal -->
 
@@ -89,7 +90,7 @@
               <div class="modal-content">
                 <span id="toDoClose" class="close">&times;</span>
                 <div>
-                  <a> Create a New To Do </a>
+                  <a id="todoModalHeader"> Create a New To Do </a>
                   <form id="NewToDo" method="POST" action="api/todos">
                     <input type="text required" placeholder="To Do" name="description">
                     <input type="hidden" name="_list" id="listIdInput" value=""</input>
