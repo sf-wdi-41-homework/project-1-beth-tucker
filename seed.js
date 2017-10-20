@@ -6,6 +6,9 @@ var newLists = [{
 {
   listName: "List 2"
 },
+{
+  listName: "List 3"
+}
 ];
 
 var newTodos = [{

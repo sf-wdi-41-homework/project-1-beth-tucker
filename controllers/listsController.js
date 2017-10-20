@@ -45,6 +45,11 @@ function show(req, res) {
 // DELETE /api/lists/:listId
 function destroy(req, res) {
   // find one list by id, delete it, and send it back as JSON
+  db.List.findByIdAndRemove(req.params.list_id, function(err, deletedList) {
+    console.log(deletedList);
+    if (err) { console.log('error', err); }
+    res.send(200);
+  });
 }
 
 // PUT or PATCH /api/lists/:listId

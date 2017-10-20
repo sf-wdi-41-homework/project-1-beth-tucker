@@ -11,6 +11,15 @@ $(document).ready(function() {
       error: deleteTodoError
     });
   });
+
+  $('#activeLists').on('click', '.close', function(e){
+    $.ajax({
+      method: "DELETE",
+      url: "/api/lists/" + $(this).attr('_id'),
+      success: deleteListSuccess,
+      error: deleteListError
+    });
+  });
   // on load render all todos
   $.ajax({
     method: "GET",
@@ -76,19 +85,29 @@ $(document).ready(function() {
 
     })
 
-
-    //end of doc.ready
   });
 
   function deleteTodoSuccess(json) {
-  var todo = json;
-  console.log(json, "Item has been deleted");
-  var todoId = todo._id;
+    var todo = json;
+    var todoId = todo._id;
+    console.log(json, "Item has been deleted");
 
-}
-function deleteTodoError(){
-  console.log('Delete failed');
-}
+  };
+
+  function deleteTodoError(){
+    console.log('Delete failed');
+  };
+
+  function deleteListSuccess(json) {
+    var list = json;
+    console.log(json, "List has been deleted");
+    var listId = list._id;
+  };
+
+  function deleteListError(){
+    console.log('Delete failed');
+  };
+
 
   // to do functionality (remove, complete)
   $('#todoList').on('click', '.markDone', function(e){
@@ -97,11 +116,15 @@ function deleteTodoError(){
     $(e.target).parent().addClass("crossOut");
   });
 
-  //strike through to do item & hide
+  //hides todo item
   $('#todoList').on('click', '.close', function(e){
     $(e.target).parent().addClass("hide");
-  })
+  });
 
+  //disappears list on active lists when X is clicked and is is simultaneously removed from db w/ delete fn
+  $('#activeLists').on('click', '.close', function(e){
+    $(e.target).parent().addClass("hide");
+  });
 
   // submit functionality for item in modal
   $('#NewToDo').on('submit', function(e){
@@ -127,9 +150,9 @@ function deleteTodoError(){
   });
 
 // this function will remove all rendered To Dos -- we do this for new list selection
-function removeTodos(todo) {
-  $('#todoList').empty(".liToDo");
-}
+  function removeTodos(todo) {
+    $('#todoList').empty(".liToDo");
+  }
 
 //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
@@ -143,11 +166,12 @@ function removeTodos(todo) {
     $('#listDropDown').append(
       `<option class="list" data-id="${list._id}">${list.listName}</option>`
     );
+    // $('#activeLists').append(
+    //   `<img class="close" <span _id="${list._id}" src="/images/trash-can.png"></span>`
+    // );
     $('#activeLists').append(
-      `<img class="trash" src="/images/trash-can.png">`
-    );
-    $('#activeLists').append(
-      `<option data-id="${list._id}">${list.listName}</option>`
+      // `<option data-id="${list._id}">${list.listName}</option>`
+      `<li class="liToDo"><a class="markDone" href="#">${list.listName}</a><span _id="${list._id}"class="close">x</span></li>`
     );
 
   }
