@@ -114,13 +114,14 @@ $(document).ready(function() {
 
   // mark todo as completed
   $('#todoList').on('click', '.markDone', function(e){
-
+    e.preventDefault();
     console.log($(this).attr('_id'));
     //update the todo in db by _id that the field 'isCompleted' is true
     $.ajax({
       method: "PUT",
       url: "/api/todos/"+ $(this).attr('_id'),
       success: function onUpdateTodoSuccess(json){
+        e.preventDefault();
         $(e.target).wrap("<strike>");
         $(e.target).removeAttr("href");
         $(e.target).parent().addClass("crossOut");
@@ -171,14 +172,18 @@ $(document).ready(function() {
   // this function will remove all rendered To Dos -- we do this for new list selection
   function removeTodos(todo) {
     $('#todoList').empty(".liToDo");
-  }
+  };
 
-  //Add logic to render isCompleted todo if true, with a strikethrough
   //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
+    if (todo.isCompleted === true) {
+      console.log(todo.isCompleted);
+      $('#todoList').prepend(
+        `<strike><li class="liToDo crossOut"><a class="markDone" _id="${todo._id}">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li><strike>`)
+    } else {
     $('#todoList').prepend(
-      `<li class="liToDo"><a class="markDone" _id="${todo._id}" href="#">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li>`
-    );
+      `<li class="liToDo"><a class="markDone" _id="${todo._id}" href="">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li>`
+    )};
   };
 
 //this function will display the list selected in the dropdown list
