@@ -59,7 +59,7 @@
                   <div>
                     <a id="todoModalHeader"> Create a New To Do </a>
                     <form id="NewToDo" method="POST" action="api/todos">
-                      <input type="text required" placeholder="To Do" name="description">
+                      <input type="text" placeholder="To Do" name="description" minLength="1" required>
                       <input type="hidden" name="_list" id="listIdInput" value=""</input>
                       <input type="submit">
                     </form>
@@ -87,7 +87,7 @@
                           <p id="activeLists"> </p>
                           <h4>Add a new list: </h4>
                           <form id="NewList" method="POST" action="api/lists">
-                            <input type="text required" placeholder="List Name" name="listName">
+                            <input type="text" placeholder="List Name" name="listName" minLength="1" required>
                             <input type="submit" value="Create List">
                           </form>
                         </div>

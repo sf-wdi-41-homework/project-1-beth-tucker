@@ -65,6 +65,7 @@ $(document).ready(function() {
         $('#loadText').remove();
         $('#toDoBtn').removeClass('hide');
         $('#todoModalHeader').html('Add a new to do to '+selected);
+        $('#todoModalHeader').wrap('<h4>');
         $('#todoListHeader').html('To Do Items on ' +selected);
         $('#listIdInput').val(json._id);
         for(var i=0; i < specificToDos.length; i++) {
