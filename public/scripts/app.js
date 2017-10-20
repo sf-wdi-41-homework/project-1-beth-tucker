@@ -26,11 +26,9 @@ $(document).ready(function() {
     url: "/api/todos",
     success: function (json){
       var allTodos = json;
-      console.log(allTodos);
-      // stretch goal -- make a forEach loop
+      // console.log(allTodos);
       for (var i = 0; i < allTodos.length; i++) {
-        console.log(allTodos[i].description);
-        //if _list property of todo ===
+        // console.log(allTodos[i].description);
         renderTodo(allTodos[i]);
       }
     }
@@ -42,9 +40,9 @@ $(document).ready(function() {
     url: "/api/lists",
     success: function (json){
       var allLists = json;
-      console.log(allLists);
-    for (var i = 0; i < allLists.length; i++)  {
-      renderList(allLists[i]);
+      // console.log(allLists);
+      for (var i = 0; i < allLists.length; i++) {
+        renderList(allLists[i]);
       }
     }
   });
@@ -55,11 +53,11 @@ $(document).ready(function() {
 
     var selected = this.value;
     var id = $(this).attr("class");
-    console.log(id);
-    console.log(this);
-    console.log("TARGET", e.target);
-    console.log($(this).attr("data-id"));
-    console.log(selected);
+    // console.log(id);
+    // console.log(this);
+    // console.log("TARGET", e.target);
+    // console.log($(this).attr("data-id"));
+    // console.log(selected);
 
     $.ajax({
       method: "GET",
@@ -93,7 +91,7 @@ $(document).ready(function() {
   function deleteTodoSuccess(json) {
     var todo = json;
     var todoId = todo._id;
-    console.log(json, "Item has been deleted");
+    // console.log(json, "Item has been deleted");
 
   };
 
@@ -103,7 +101,7 @@ $(document).ready(function() {
 
   function deleteListSuccess(json) {
     var list = json;
-    console.log(json, "List has been deleted");
+    // console.log(json, "List has been deleted");
     var listId = list._id;
   };
 
@@ -115,7 +113,7 @@ $(document).ready(function() {
   // mark todo as completed
   $('#todoList').on('click', '.markDone', function(e){
     e.preventDefault();
-    console.log($(this).attr('_id'));
+    // console.log($(this).attr('_id'));
     //update the todo in db by _id that the field 'isCompleted' is true
     $.ajax({
       method: "PUT",
@@ -150,7 +148,7 @@ $(document).ready(function() {
   $('#NewToDo').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
-    console.log(formData);
+    // console.log(formData);
     $.post('/api/todos', formData, function(todo){
       renderTodo(todo);
     })
@@ -161,7 +159,7 @@ $(document).ready(function() {
   $('#NewList').on('submit', function(e){
     e.preventDefault();
     var formData = $(this).serialize();
-    console.log(formData);
+    // console.log(formData);
     $.post('/api/lists', formData, function(list){
       renderList(list);
     })
@@ -177,7 +175,7 @@ $(document).ready(function() {
   //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
     if (todo.isCompleted === true) {
-      console.log(todo.isCompleted);
+      // console.log(todo.isCompleted);
       $('#todoList').prepend(
         `<strike><li class="liToDo crossOut"><a class="markDone" _id="${todo._id}">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li><strike>`)
     } else {
@@ -191,9 +189,7 @@ $(document).ready(function() {
     $('#listDropDown').append(
       `<option class="list" data-id="${list._id}">${list.listName}</option>`
     );
-    // $('#activeLists').append(
-    //   `<img class="close" <span _id="${list._id}" src="/images/trash-can.png"></span>`
-    // );
+    
     $('#activeLists').append(
       // `<option data-id="${list._id}">${list.listName}</option>`
       `<li class="liToDo"><a class="markDone" href="#">${list.listName}</a><span _id="${list._id}"class="close">x</span></li>`
