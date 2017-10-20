@@ -19,12 +19,3 @@ var TodoSchema = new Schema({
 var Todo = mongoose.model('Todo', TodoSchema);
 
 module.exports = Todo;
-
-/*
-
-to find all todos via list id:
-db.Todo.find({_list: listID}, function(err, succ){
-  res.json(succ)
-})
-
-*/
