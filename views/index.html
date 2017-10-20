@@ -30,6 +30,7 @@
     <div class="full-width-div" id="welcome">
       <h1 class="display-3">Welcome to Jibe</h1>
       <h4>Keep you & yours organized</h4>
+      <h5 id="loadText">Select a list from the dropdown to create and manage your to dos.</h5>
       <div class="buttons">
         <!-- <button class="btn active" type="button">Create Account</button>
         <button class="btn active" type="button">Log In</button> -->
@@ -40,11 +41,11 @@
 <!-- body and columns -->
 
 <!-- list of to dos is below -->
-    <div class="container">
-        <div class="row" id="pageContent">
-          <div class="col-md-9 list">
+    <div class="container page-wrap">
+        <div class="row">
+          <div class="col-md-9 list" id="toDoBlock">
               <section id="todoHeader">
-                <button id="toDoBtn"> + </button>
+                <button id="toDoBtn" class = "hide"> + </button>
                 <h3 id="todoListHeader"> All Open To Dos </h3>
               </section>
                   <ul id='todoList' >
@@ -58,7 +59,7 @@
                   <div>
                     <a id="todoModalHeader"> Create a New To Do </a>
                     <form id="NewToDo" method="POST" action="api/todos">
-                      <input type="text required" placeholder="To Do" name="description">
+                      <input type="text" placeholder="To Do" name="description" minLength="1" required>
                       <input type="hidden" name="_list" id="listIdInput" value=""</input>
                       <input type="submit">
                     </form>
@@ -86,7 +87,7 @@
                           <p id="activeLists"> </p>
                           <h4>Add a new list: </h4>
                           <form id="NewList" method="POST" action="api/lists">
-                            <input type="text required" placeholder="List Name" name="listName">
+                            <input type="text" placeholder="List Name" name="listName" minLength="1" required>
                             <input type="submit" value="Create List">
                           </form>
                         </div>
@@ -100,11 +101,11 @@
 
 <!-- footer -->
 
-    <!-- <footer class="navbar-default">
-      <div class="container-fluid">
-        <span> beth witten // tucker bolding </span>
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Made by Beth Witten & Tucker Bolding <a href="https://github.com/sf-wdi-41-homework/project-1-beth-tucker"><img src="/images/github.png"> </a></p>
       </div>
-    </footer> -->
+    </div>
 
   </body>
 </html>
