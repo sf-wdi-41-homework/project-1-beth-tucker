@@ -114,23 +114,26 @@ $(document).ready(function() {
 
   // mark todo as completed
   $('#todoList').on('click', '.markDone', function(e){
-    $(e.target).wrap("<strike>");
-    $(e.target).removeAttr("href");
-    $(e.target).parent().addClass("crossOut");
 
+    console.log($(this).attr('_id'));
     //update the todo in db by _id that the field 'isCompleted' is true
-    // $.ajax({
-    //   method: "PUT",
-    //   url: "/api/todos/"+ $(this).attr('_id')
-    //   success: onUpdateTodoSuccess,
-    //   error: onUpdateTodoError
-    // });
+    $.ajax({
+      method: "PUT",
+      url: "/api/todos/"+ $(this).attr('_id'),
+      success: function onUpdateTodoSuccess(json){
+        $(e.target).wrap("<strike>");
+        $(e.target).removeAttr("href");
+        $(e.target).parent().addClass("crossOut");
+        console.log("styling appended in app.js");
+      },
+      error: function onUpdateTodoError(a, b, c){
+        console.log(b, c);
+      }
+    });
   });
 
   //
-  function onUpdateTodoSuccess() {
-    console.log("testing todo update success");
-  }
+
 
   //hides todo item
   $('#todoList').on('click', '.close', function(e){
@@ -170,10 +173,11 @@ $(document).ready(function() {
     $('#todoList').empty(".liToDo");
   }
 
+  //Add logic to render isCompleted todo if true, with a strikethrough
   //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
     $('#todoList').prepend(
-      `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li>`
+      `<li class="liToDo"><a class="markDone" _id="${todo._id}" href="#">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li>`
     );
   };
 

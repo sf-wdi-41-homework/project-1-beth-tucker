@@ -60,6 +60,7 @@
                     <a id="todoModalHeader"> Create a New To Do </a>
                     <form id="NewToDo" method="POST" action="api/todos">
                       <input type="text" placeholder="To Do" name="description" minLength="1" required>
+                      <input type="hidden" name="isCompleted" value="false"</input>
                       <input type="hidden" name="_list" id="listIdInput" value=""</input>
                       <input type="submit">
                     </form>

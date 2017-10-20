@@ -42,19 +42,33 @@
   function update(req, res) {
     // find one todo by id, update it based on request body,
     // and send it back as JSON
-
-    db.Todo.findById(req.params.id, function(err, foundTodo) {
-      if (err) { console.log('todosController.update error', err); }
-      foundTodo.description = req.body.description; //This needs to change to changing isCompleted attr to True
-      foundTodo.isCompleted = true;
-      console.log(foundTodo);
-
-      foundTodo.save(function(err, savedTodo) {
-        if (err) { console.log('updating todo failed'); }
-        res.json(savedTodo);
-      });
+    // db.Todo.findeOneAndUPdate(
+    //   {"_id" : req.params._id},
+    //   {$set : {"isCompleted" : true}}
+    // );
+    //   function (err, succ){
+    console.log(req.params.todo_id);
+    db.Todo.findOneAndUpdate({_id: req.params.todo_id}, { isCompleted: true }, { new: true}, function (err, succ){
+      if(err){return err}
+      console.log("SUCCESS: " , succ);
+      console.log("isCompleted should be true");
+      res.json(succ);
     });
-  }
+  };
+
+
+    // db.Todo.findById(req.params.id, function(err, foundTodo) {
+    //   if (err) { console.log('todosController.update error', err); }
+    //   foundTodo.description = req.body.description; //This needs to change to changing isCompleted attr to True
+    //   foundTodo.isCompleted = true;
+    //   console.log(foundTodo);
+    //
+    //   foundTodo.save(function(err, savedTodo) {
+    //     if (err) { console.log('updating todo failed'); }
+    //     res.json(savedTodo);
+    //   });
+    // });
+  // }
 
   module.exports = {
     index: index,
