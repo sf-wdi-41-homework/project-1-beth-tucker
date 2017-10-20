@@ -43,7 +43,8 @@ button {
 
 #listDropDown {
   width: 75%;
-  margin: 10px;
+  margin: 8px 10px;
+  height: 30px;
   border: 1px solid #08171A;
 }
 
@@ -55,11 +56,25 @@ button {
 #toDoBtn,
 #ListBtn {
   float:right;
+  width: 35px;
+  height: 35px;
+}
+
+#toDoBtn{
+  background-image: url("/images/plus-sign.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #ListBtn {
+  font-size: 1px;
   margin-top: 5px;
   margin-right: 10px;
+  background-image: url("/images/gear-icon.png");
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*.list is light colored to do box*/
