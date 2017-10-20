@@ -62,6 +62,8 @@ $(document).ready(function() {
         console.log(json._id);
         var specificToDos = json.todos;
         $('#emptyList').remove();
+        $('#loadText').remove();
+        $('#toDoBtn').removeClass('hide');
         $('#todoModalHeader').html('Add a new to do to '+selected);
         $('#todoListHeader').html('To Do Items on ' +selected);
         $('#listIdInput').val(json._id);
