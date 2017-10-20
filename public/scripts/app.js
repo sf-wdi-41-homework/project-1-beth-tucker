@@ -4,9 +4,6 @@ $(document).ready(function() {
   console.log('app.js loaded!');
 
   $('#todoList').on('click', '.close', function(e){
-    // console.log("this is where delete goes");
-
-
     $.ajax({
       method: "DELETE",
       url: "/api/todos/" + $(this).attr('_id'),
@@ -66,7 +63,7 @@ $(document).ready(function() {
         var specificToDos = json.todos;
         $('#emptyList').remove();
         $('#todoModalHeader').html('Add a new to do to '+selected);
-        $('#todoListHeader').html(selected + ' to do items');
+        $('#todoListHeader').html('To Do Items on ' +selected);
         $('#listIdInput').val(json._id);
         for(var i=0; i < specificToDos.length; i++) {
           renderTodo(specificToDos[i]);
@@ -147,8 +144,12 @@ function removeTodos(todo) {
       `<option class="list" data-id="${list._id}">${list.listName}</option>`
     );
     $('#activeLists').append(
-      `<option class="list" data-id="${list._id}">${list.listName}<span class="close">X</span></option>`
+      `<img class="trash" src="/images/trash-can.png">`
     );
+    $('#activeLists').append(
+      `<option data-id="${list._id}">${list.listName}</option>`
+    );
+
   }
 
 

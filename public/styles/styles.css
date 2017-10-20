@@ -41,6 +41,10 @@ button {
   border: 1px solid #08171A;
 }
 
+#todoListHeader {
+  margin: 3px;
+}
+
 #listDropDown {
   width: 75%;
   margin: 8px 10px;
@@ -189,4 +193,13 @@ a:hover {
 
 .hide {
   display: none;
+}
+
+#activeLists{
+  /*display: inline-block;*/
+}
+
+.trash {
+  float: right;
+  margin-left: 85%;
 }
