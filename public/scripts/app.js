@@ -112,12 +112,25 @@ $(document).ready(function() {
   };
 
 
-  // to do functionality (remove, complete)
+  // mark todo as completed
   $('#todoList').on('click', '.markDone', function(e){
     $(e.target).wrap("<strike>");
     $(e.target).removeAttr("href");
     $(e.target).parent().addClass("crossOut");
+
+    //update the todo in db by _id that the field 'isCompleted' is true
+    // $.ajax({
+    //   method: "PUT",
+    //   url: "/api/todos/"+ $(this).attr('_id')
+    //   success: onUpdateTodoSuccess,
+    //   error: onUpdateTodoError
+    // });
   });
+
+  //
+  function onUpdateTodoSuccess() {
+    console.log("testing todo update success");
+  }
 
   //hides todo item
   $('#todoList').on('click', '.close', function(e){
@@ -152,12 +165,12 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
-// this function will remove all rendered To Dos -- we do this for new list selection
+  // this function will remove all rendered To Dos -- we do this for new list selection
   function removeTodos(todo) {
     $('#todoList').empty(".liToDo");
   }
 
-//this function will actually render items with 'X' to remove
+  //this function will actually render items with 'X' to remove
   function renderTodo(todo) {
     $('#todoList').prepend(
       `<li class="liToDo"><a class="markDone" href="#">${todo.description}</a><span _id="${todo._id}"class="close">x</span></li>`

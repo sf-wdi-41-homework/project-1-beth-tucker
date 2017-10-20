@@ -45,7 +45,9 @@
 
     db.Todo.findById(req.params.id, function(err, foundTodo) {
       if (err) { console.log('todosController.update error', err); }
-      foundTodo.description = req.body.description;
+      foundTodo.description = req.body.description; //This needs to change to changing isCompleted attr to True
+      foundTodo.isCompleted = true;
+      console.log(foundTodo);
 
       foundTodo.save(function(err, savedTodo) {
         if (err) { console.log('updating todo failed'); }
