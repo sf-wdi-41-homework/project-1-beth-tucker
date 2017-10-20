@@ -73,7 +73,7 @@ button {
 }
 
 #toDoBtn,
-#listBtn {
+#ListBtn {
   float:right;
   width: 35px;
   height: 35px;
@@ -86,7 +86,7 @@ button {
   background-position: center;
 }
 
-#listBtn {
+#ListBtn {
   font-size: 1px;
   margin-top: 5px;
   margin-right: 10px;
