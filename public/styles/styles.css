@@ -17,13 +17,19 @@ body {
   text-align: center;
   color: #FFE66D;
   padding-top: 5%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #08171A;
 }
 
 h4 {
   font-weight: lighter;
   color: #4ECDC4;
+}
+
+#loadText {
+  margin-top: 20px;
+  font-style: italic;
+  color: #b0b8c4;
 }
 
 button {
@@ -55,6 +61,7 @@ button {
 #listBlock {
   height: 50px;
   width: 300px;
+  margin-bottom: 100px;
 }
 
 #toDoBtn,
@@ -111,15 +118,15 @@ button {
   border-radius: 10px;
 }
 
-footer {
-   left:0px;
-   bottom:0px;
-   height:25px;
-   width:100%;
-   background:#1A535C;
-   color: #a9d8c0;
-   border-top: 1px solid #08171A;
-   margin-top: 40px;
+#footer {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 75px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  background-color: #f5f5f5;
+  text-align: center;
 }
 
 /*Modal formatting*/
@@ -193,10 +200,6 @@ a:hover {
 
 .hide {
   display: none;
-}
-
-#activeLists{
-  /*display: inline-block;*/
 }
 
 .trash {
