@@ -123,7 +123,7 @@ $(document).ready(function() {
         $(e.target).wrap("<strike>");
         $(e.target).removeAttr("href");
         $(e.target).parent().addClass("crossOut");
-        console.log("styling appended in app.js");
+        // console.log("styling appended in app.js");
       },
       error: function onUpdateTodoError(a, b, c){
         console.log(b, c);
@@ -189,7 +189,7 @@ $(document).ready(function() {
     $('#listDropDown').append(
       `<option class="list" data-id="${list._id}">${list.listName}</option>`
     );
-    
+
     $('#activeLists').append(
       // `<option data-id="${list._id}">${list.listName}</option>`
       `<li class="liToDo"><a class="markDone" href="#">${list.listName}</a><span _id="${list._id}"class="close">x</span></li>`
