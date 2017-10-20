@@ -95,9 +95,9 @@ function deleteTodoError(){
 
   // to do functionality (remove, complete)
   $('#todoList').on('click', '.markDone', function(e){
-    $(e.target).addClass("strike");
+    $(e.target).wrap("<strike>");
     $(e.target).removeAttr("href");
-
+    $(e.target).parent().addClass("crossOut");
   });
 
   //strike through to do item & hide
