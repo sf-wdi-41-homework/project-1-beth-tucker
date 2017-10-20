@@ -1,6 +1,11 @@
 
+html {
+  height: 100%;
+}
+
 
 body {
+  min-height: 100%;
   font-family: 'Montserrat', sans-serif;
   background: white;
   background-image:
@@ -62,6 +67,10 @@ button {
   height: 50px;
   width: 300px;
   margin-bottom: 100px;
+}
+
+#toDoBlock {
+  height: 500px;
 }
 
 #toDoBtn,
