@@ -73,7 +73,7 @@ $(document).ready(function() {
         }
       },
       error: function(a, b, c){
-        console.log(b);
+        console.log(b);a
         console.log(c);
       }
 
