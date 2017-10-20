@@ -22,7 +22,7 @@ body {
   text-align: center;
   color: #FFE66D;
   padding-top: 5%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #08171A;
 }
 
@@ -42,7 +42,7 @@ button {
   color: #1A535C;
   border-radius: 25px;
   border: 1px solid #08171A;
-  font-size: 18px;
+  font-size: 1px;
 }
 
 .btn:hover {
@@ -64,7 +64,7 @@ button {
 }
 
 #listBlock {
-  height: 50px;
+  height: 150px;
   width: 300px;
   margin-bottom: 100px;
 }
@@ -104,13 +104,20 @@ button {
   border-radius: 10px;
 }
 
+#listHeader,
 #todoHeader {
+  height: 48px;
   text-align: center;
   margin: 20px;
   border: 1px solid #08171A;
   border-radius: 10px;
   padding: 5px 5px;
-  background-color: #4ECDC4;
+  background-color: #1A535C;
+  color: #FFE66D;
+}
+
+#listHeader {
+  padding-top: 7px;
 }
 
 .listItem {
