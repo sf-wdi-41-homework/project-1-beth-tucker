@@ -1,35 +1,36 @@
 var db = require('./models');
 
 var newLists = [{
-  listName: "List 1",
+  listName: "Jibe Intro",
 },
 {
-  listName: "List 2"
+  listName: "Personal"
 },
 {
-  listName: "List 3"
+  listName: "Professional"
 }
 ];
 
 var newTodos = [{
-  description: "ignore JDK Java tool thingy",
-  duedate: "WHEN YOU GET around to it",
-  recurring: true,
-  username: "tuckerb",
+  description: "Learn about Jibe",
+  duedate: "",
+  recurring: false,
+  username: "",
   isCompleted: false,
   isDeleted: false,
 }, {
-  description: "Put out fires in Santa Rosa",
-  duedate: "As soon as possible",
+  description: "Make a new list",
+  duedate: "",
   recurring: false,
-  username: "tuckerb",
+  username: "",
   isCompleted: false,
   isDeleted: false,
-}, {
-  description: "Finish beautifying the front-end",
-  duedate: "Friday",
+},
+{
+  description: "Delete Jibe list",
+  duedate: "",
   recurring: false,
-  username: "bethw",
+  username: "",
   isCompleted: false,
   isDeleted: false,
 }
@@ -45,9 +46,10 @@ var newTodos = [{
       createdLists.forEach(function(list, index){
         newTodos[index]._list = list._id
         db.Todo.create(newTodos[index], function(err, succ){
+          console.log("created new to dos");
           if(err){return console.log("ERR", err)}
           console.log(succ);
-          // process.exit(0);
+          process.exit(0);
         });
       })
       db.Todo.remove({}, function(err, succ){

@@ -3,7 +3,6 @@ html {
   height: 100%;
 }
 
-
 body {
   min-height: 100%;
   font-family: 'Montserrat', sans-serif;
@@ -15,6 +14,11 @@ body {
   background-position: 0 0, 15px 15px;
 }
 
+h4 {
+  font-weight: lighter;
+  color: #4ECDC4;
+}
+
 #welcome {
   font: 'Open Sans', sans-serif;
   background-color: #1A535C;
@@ -24,11 +28,6 @@ body {
   padding-top: 5%;
   margin-bottom: 30px;
   border-bottom: 1px solid #08171A;
-}
-
-h4 {
-  font-weight: lighter;
-  color: #4ECDC4;
 }
 
 #loadText {
@@ -74,7 +73,7 @@ button {
 }
 
 #toDoBtn,
-#ListBtn {
+#listBtn {
   float:right;
   width: 35px;
   height: 35px;
@@ -87,7 +86,7 @@ button {
   background-position: center;
 }
 
-#ListBtn {
+#listBtn {
   font-size: 1px;
   margin-top: 5px;
   margin-right: 10px;
@@ -97,7 +96,6 @@ button {
   background-position: center;
 }
 
-/*.list is light colored to do box*/
 .list {
   border: 1px solid #08171A;
   background-color: #F7FFF7;
@@ -145,9 +143,6 @@ button {
   text-align: center;
 }
 
-/*Modal formatting*/
-
-/* The Modal (background) */
 .modal {
     display: none;
     position: fixed;
@@ -161,7 +156,6 @@ button {
     background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -170,7 +164,6 @@ button {
     width: 50%;
 }
 
-/* The Close Button */
 .close,
 .closeList {
     color: #aaa;
@@ -187,8 +180,6 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
-
-/*list item formatting*/
 
 a:link,
 a:visited {

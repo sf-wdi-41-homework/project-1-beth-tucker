@@ -1,10 +1,7 @@
-// require mongoose
-// set up shorthand Schema variable to stand in for mongoose.Schema
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var List = require('./list');
 
-// todo schema
 var TodoSchema = new Schema({
   description: String,
   duedate: String,
@@ -15,7 +12,6 @@ var TodoSchema = new Schema({
   _list: {type: Schema.Types.ObjectId, ref: 'List'}
 });
 
-// todo model
 var Todo = mongoose.model('Todo', TodoSchema);
 
 module.exports = Todo;
