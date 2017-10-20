@@ -10,7 +10,7 @@
      <!-- STYLESHEETS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
      <link rel="stylesheet" href="styles/styles.css">
-     <link rel="shortcut icon" href="images/notepad.jpg">
+     <link rel="shortcut icon" href="images/icon-checklist.jpg">
      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 
@@ -29,7 +29,6 @@
 
     <div class="full-width-div" id="welcome">
       <h1 class="display-3">Welcome to Jibe</h1>
-      <i class="fa fa-check-square-o" aria-hidden="true"></i>
       <h4>Keep you & yours organized</h4>
       <div class="buttons">
         <!-- <button class="btn active" type="button">Create Account</button>
@@ -40,75 +39,64 @@
 
 <!-- body and columns -->
 
-
 <!-- list of to dos is below -->
+    <div class="container">
+        <div class="row" id="pageContent">
+          <div class="col-md-9 list">
+              <section id="todoHeader">
+                <button id="toDoBtn"> + </button>
+                <h3 id="todoListHeader"> All Open To Dos </h3>
+              </section>
+                  <ul id='todoList' >
+                    <!-- this is where to dos are added through jquery on load  -->
+                  </ul>
+            <!-- to do modal -->
+              <div id="myModal" class="modal">
+                <!-- to do modal content -->
+                <div class="modal-content">
+                  <span id="toDoClose" class="close">&times;</span>
+                  <div>
+                    <a id="todoModalHeader"> Create a New To Do </a>
+                    <form id="NewToDo" method="POST" action="api/todos">
+                      <input type="text required" placeholder="To Do" name="description">
+                      <input type="hidden" name="_list" id="listIdInput" value=""</input>
+                      <input type="submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-1"> </div>
-        <div class="col-md-8 list">
-            <section id="todoHeader">
-              <button id="toDoBtn"> + </button>
-              <h3 id="todoListHeader"> All Open To Dos </h3>
-            </section>
-
-            <!-- Trigger/Open The Modal -->
-
-          <ul id='todoList' >
-         <!-- this is where to dos are added through jquery on load  -->
-          </ul>
-          <!-- to do modal -->
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-              <!-- Modal content -->
-              <div class="modal-content">
-                <span id="toDoClose" class="close">&times;</span>
-                <div>
-                  <a id="todoModalHeader"> Create a New To Do </a>
-                  <form id="NewToDo" method="POST" action="api/todos">
-                    <input type="text required" placeholder="To Do" name="description">
-                    <input type="hidden" name="_list" id="listIdInput" value=""</input>
-                    <input type="submit">
-                  </form>
+          <!-- list functionality -->
+            <div class="col-md-3">
+              <div class="list" id="listBlock">
+                <select id="listDropDown">
+                  <!-- empty list option that is removed once list is selected -->
+                  <option id="emptyList"> </option>
+                  <!-- this is where list populate on page load -->
+                </select>
+                <!-- list modal -->
+                  <div id="listModal" class="modal">
+                    <div class="modal-content">
+                      <span id="newListClose" class="closeList">&times;</span>
+                        <!-- list modal content -->
+                        <div>
+                          <h3> List Manager </h3>
+                          <h4>Here are your active lists: </h4>
+                          <p id="activeLists"> </p>
+                          <h4>Add a new list: </h4>
+                          <form id="NewList" method="POST" action="api/lists">
+                            <input type="text required" placeholder="List Name" name="listName">
+                            <input type="submit" value="Create List">
+                          </form>
+                        </div>
+                    </div>
+                  </div>
+                  <button id="ListBtn"> . </button>
                 </div>
               </div>
             </div>
-        </div>
-        <!-- add in list manager here "col-md-2" -->
-        <!-- list functionality -->
-          <div class="row">
-            <div class="col-md-12">
-              <select id="listDropDown">
-                <option id="emptyList"> </option>
-                <!-- //this is where allLists in db will populate on page load -->
-              </select>
-              <!-- list modal -->
-              <section>
-                <div id="listModal" class="modal">
-                  <div class="modal-content">
-                    <span id="newListClose" class="closeList">&times;</span>
-                    <div>
-                      <p> List Manager <br> Lists are where To Dos live </p>
-                      <p>Here are your active lists: </p>
-                      <p id="activeLists"> </p>
-                      <p>Add a new list: </p>
-                      <form id="NewList" method="POST" action="api/lists">
-                        <input type="text required" placeholder="List Name" name="listName">
-                        <input type="submit" value="Create List">
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <button id="ListBtn"> + </button>
-              </section>
-            <div>
-          <div>
-        <div class="col-md-1"> </div>
-    </div>
-  </div>
-</div>
-
+          </div>
 
 <!-- footer -->
 

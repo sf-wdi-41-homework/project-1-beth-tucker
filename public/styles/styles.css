@@ -21,11 +21,6 @@ body {
   border-bottom: 1px solid #08171A;
 }
 
-#listDropDown {
-  margin-left: 87%;
-  border: 1px solid #08171A;
-}
-
 h4 {
   font-weight: lighter;
   color: #4ECDC4;
@@ -46,9 +41,44 @@ button {
   border: 1px solid #08171A;
 }
 
+#todoListHeader {
+  margin: 3px;
+}
+
+#listDropDown {
+  width: 75%;
+  margin: 8px 10px;
+  height: 30px;
+  border: 1px solid #08171A;
+}
+
+#listBlock {
+  height: 50px;
+  width: 300px;
+}
+
 #toDoBtn,
 #ListBtn {
   float:right;
+  width: 35px;
+  height: 35px;
+}
+
+#toDoBtn{
+  background-image: url("/images/plus-sign.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#ListBtn {
+  font-size: 1px;
+  margin-top: 5px;
+  margin-right: 10px;
+  background-image: url("/images/gear-icon.png");
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*.list is light colored to do box*/
@@ -156,11 +186,20 @@ a:hover {
   font-weight: bold;
 }
 
-.strike {
-  text-decoration: line-through;
-  color: #4a4f4b;
+.crossOut {
+  font-style: italic;
+  color: #bbc1bd;
 }
 
 .hide {
   display: none;
+}
+
+#activeLists{
+  /*display: inline-block;*/
+}
+
+.trash {
+  float: right;
+  margin-left: 85%;
 }
